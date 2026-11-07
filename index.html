@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Olwethu Mpushe | WDD 231 Frontend Web Development</title>
+  <meta name="description" content="Course home page for Olwethu Mpushe, a software development student in South Africa, with a filterable list of certificate courses and total credits.">
+  <meta name="author" content="Olwethu Mpushe">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+  <script src="scripts/course.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-bar">
+      <a class="brand" href="index.html">
+        <img src="images/logo.svg" alt="OM monogram logo" width="40" height="40">
+        <span class="brand-name">Olwethu Mpushe</span>
+      </a>
+      <button id="menu-button" class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">&#9776;</button>
+    </div>
+    <nav aria-label="Main">
+      <ul id="primary-nav" class="nav-list">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="chamber/index.html">Chamber</a></li>
+        <li><a href="final/index.html">Final</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Home</h1>
+
+    <section class="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <img class="profile-photo" src="images/profile.jpg" alt="Portrait of Olwethu Mpushe smiling, wearing a blue plaid suit and a bronze tie in front of cream curtains" width="640" height="640">
+      <p>
+        Hello, I am Olwethu Mpushe from the Eastern Cape in South Africa. I am a
+        student in the Software Development program, and this page is my home
+        base for WDD 231, Frontend Web Development.
+      </p>
+      <p>
+        I enjoy turning a blank file into something real that works on any
+        screen, and I am learning to write clean, fast and accessible code.
+      </p>
+    </section>
+
+    <section class="goals" aria-labelledby="goals-heading">
+      <h2 id="goals-heading">My Goals</h2>
+      <ul class="goal-list">
+        <li>Finish the Web and Computer Programming certificate.</li>
+        <li>Build a responsive Chamber of Commerce website for my own region.</li>
+        <li>Score 95 or higher in every Lighthouse category on my pages.</li>
+        <li>Use JavaScript to make pages that respond to the people using them.</li>
+      </ul>
+    </section>
+
+    <section class="courses" aria-labelledby="courses-heading">
+      <h2 id="courses-heading">Web and Computer Programming Certificate</h2>
+      <div class="filters" role="group" aria-label="Filter courses by subject">
+        <button type="button" class="filter-button" data-filter="all" aria-pressed="true">All Courses</button>
+        <button type="button" class="filter-button" data-filter="WDD" aria-pressed="false">WDD Courses</button>
+        <button type="button" class="filter-button" data-filter="CSE" aria-pressed="false">CSE Courses</button>
+      </div>
+      <p class="credits" aria-live="polite">Total credits for the courses listed: <strong id="total-credits">0</strong></p>
+      <ul id="course-list" class="course-list"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <ul class="social-links" aria-label="Social media">
+      <li><a href="https://github.com/olwethumpushe100" target="_blank" rel="noopener"><img src="images/github.svg" alt="GitHub" width="28" height="28"></a></li>
+      <li><a href="https://www.linkedin.com/in/olwethu-mpushe-3b03a2414" target="_blank" rel="noopener"><img src="images/linkedin.svg" alt="LinkedIn" width="28" height="28"></a></li>
+    </ul>
+    <p class="copyright">&copy; <span id="currentyear"></span> Olwethu Mpushe | Eastern Cape, South Africa</p>
+    <p id="lastModified" class="last-modified"></p>
+  </footer>
+
+</body>
+</html>

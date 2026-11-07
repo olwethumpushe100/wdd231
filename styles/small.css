@@ -1,0 +1,352 @@
+/* ============================================
+   Design tokens
+   ============================================ */
+:root {
+  --bg: #F3F4EF;
+  --paper: #FFFFFF;
+  --ink: #1F2A24;
+  --ink-soft: #4A564E;
+  --accent: #2E5A46;
+  --accent-dark: #1F3D30;
+  --gold: #E0B84A;
+  --border: #CBD2C6;
+
+  --font-body: "Inter", system-ui, sans-serif;
+  --max-width: 1100px;
+}
+
+/* ============================================
+   Reset and base (small screens first)
+   ============================================ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ============================================
+   Header and navigation
+   ============================================ */
+header {
+  background-color: var(--accent-dark);
+  color: var(--bg);
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 48px;
+  color: var(--bg);
+  text-decoration: none;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.menu-button {
+  min-width: 48px;
+  min-height: 48px;
+  background: transparent;
+  color: var(--bg);
+  border: 2px solid var(--bg);
+  border-radius: 6px;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* The menu is closed until the hamburger button opens it */
+.nav-list {
+  display: none;
+  flex-direction: column;
+  padding: 0 1.25rem 1rem;
+}
+
+.nav-list.open {
+  display: flex;
+}
+
+.nav-list a {
+  display: block;
+  padding: 0.85rem 0.5rem;
+  min-height: 48px;
+  color: var(--bg);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  border-top: 1px solid rgba(243, 244, 239, 0.2);
+}
+
+.nav-list a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-bottom-color: var(--gold);
+}
+
+/* Wayfinding: the current page is bold and underlined in gold */
+.nav-list a[aria-current="page"] {
+  font-weight: 700;
+  border-bottom-color: var(--gold);
+}
+
+/* ============================================
+   Main content (one column on small screens)
+   ============================================ */
+main {
+  display: grid;
+  gap: 1.5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+main h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+section {
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+section h2 {
+  color: var(--accent);
+  font-size: 1.35rem;
+}
+
+.about p:last-child {
+  margin-bottom: 0;
+}
+
+.profile-photo {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin: 0 auto 1.25rem;
+  border-radius: 8px;
+  border: 3px solid var(--paper);
+  outline: 1px solid var(--border);
+}
+
+.goal-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.goal-list li:last-child {
+  margin-bottom: 0;
+}
+
+.goal-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background-color: var(--gold);
+}
+
+/* ============================================
+   Courses: filter buttons, credits and cards
+   ============================================ */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.filter-button {
+  min-height: 48px;
+  padding: 0.6rem 1.1rem;
+  background-color: var(--paper);
+  color: var(--accent-dark);
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filter-button:hover {
+  background-color: #E6EDE8;
+}
+
+.filter-button[aria-pressed="true"] {
+  background-color: var(--accent);
+  color: var(--paper);
+}
+
+.credits {
+  margin-bottom: 1.25rem;
+  color: var(--ink-soft);
+}
+
+.credits strong {
+  color: var(--ink);
+}
+
+.course-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.course-card {
+  padding: 1rem 1.25rem;
+  background-color: var(--paper);
+  border: 2px dashed var(--border);
+  border-radius: 8px;
+}
+
+.course-card h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+  color: var(--accent-dark);
+}
+
+.course-card p {
+  margin-bottom: 0.25rem;
+}
+
+.course-title {
+  font-weight: 500;
+}
+
+.course-credits {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* Completed courses: solid green card with a check mark */
+.course-card.completed {
+  background-color: var(--accent);
+  border: 2px solid var(--accent-dark);
+  color: var(--paper);
+}
+
+.course-card.completed h3,
+.course-card.completed .course-credits {
+  color: var(--paper);
+}
+
+.course-status {
+  display: inline-block;
+  margin: 0.5rem 0 0;
+  padding: 0.15rem 0.65rem;
+  background-color: var(--paper);
+  color: var(--accent-dark);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+footer {
+  padding: 2rem 1.25rem;
+  background-color: var(--accent-dark);
+  color: var(--bg);
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+}
+
+.social-links a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+footer p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   Reduced motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
